@@ -1,0 +1,241 @@
+AIM: 
+When it comes to Amusement park Management Systems allows you to automate processes from ticketing to waiver management and gives you greater control over operations. Get System and get all park functions geared towards a common goal: delivering delightful guest experiences. 
+Analyse attraction popularity to determine future attraction pricing options 
+Improve safety of rides by producing a reliable maintenance schedule 
+Keeping a detailed record of Staff responsibilities. 
+ 
+DESCRIPTION: 
+The database can be used to analyse the business before the summer months to better prepare them for the busiest seasons of the year. 
+The general manager has standardized pricing to gauge the true popularity of each attraction before pricing it accordingly for the summer season. 
+Maintenance staff will never work on attractions and attraction staff will never work on maintenance tasks. Daily Maintenance tasks will take place at 8:00am every day before opening. 
+The park is open from 9:00am-8:30pm. 
+Attraction Staff members must work at least 1 shift per day but may work up to 2 shifts a day, and the 2nd shift must be on a different attraction than the first shift worked. 
+Attractions do not have to be full for the attraction to run. 
+Each Visitor that comes to Adventure Place must purchase at least one ticket through the Ticket Booth. 
+ Each Visitor will be asked to supply their Zip Code and Email address. 
+ An ID number will be generated for each new visitor & OrderID will hold all of the information pertaining to the one specific attraction transaction. An OrderID must have at least one AttractionID, but can have more. 
+ Each Attraction requires the Visitor to have at least one ticket to ride one time. 
+  
+ENTITIES: 
+Visitor 
+Ticket booth 
+Attraction  
+Attraction Staff 
+Attraction Schedule 
+Maintenance Staff 
+Maintenance Schedule PRIMARY KEYS: 
+Ticket booth: Order ID 
+Maintenance Schedule: MaintenanceID 
+Attraction t: AttractionID 
+Attraction Schedule : ShiftID 
+Attraction Staff: StaffID 
+Maintenance Staff: StaffID 
+Visitor: VisitorID 
+ 
+ 
+OTHER ATTRIBUTES: 
+Visitor (VisitorID, LastName, FirstName, ZipCode, Email, Date_Last_Visited) 
+TicketBooth (OrderID, VisitorID, AttractionID, PurchaseDate, Quantity, Total) 
+MaintenaceSchedule(MaintenancelD, 	MaintenanceStaffID, AttractionID, Time_Start, Time_End, Description) 
+MaintenanceStaff (MaintenanceStaffID, FirstName, LastName, YearOfHire) 
+Attraction (AttractionID, Price, Name, Description) 
+AttractionSchedule (ShiftID, StaffID, AttractionID, Time_Start, Time_End) 
+AttractionStaff (StaffID, LastName, FirstName, YearOfHire) 
+
+ 
+ 
+TABLES: 
+--create database amusement; use amusement; 
+--create table Visitor(VisitorID int primary key, 
+Firstname varchar(40), 
+Lastname varchar(40), 
+Zipcode int, 
+Email varchar(40), 
+Date_Last_Vistied date); 
+--create table Attraction(AttractionID int primary key, 
+Price int, 
+Name varchar(40), 
+Description varchar(40)); 
+--create table ticketbooth(OrderID int primary key, 
+Purchase date, 
+Quantity int, 
+Total int); 
+--create table MaintenaceSchedule(MainteanceID int primary key, 
+MainteanceStaffID int, 
+AttractionID int, 
+Time_Start int, 
+Time_End int, 
+Description varchar(40)); 
+--create table MainteanceStaff(MainteanceStaffID int primary key, 
+FirstName varchar(40), 
+LastName varchar(40), 
+YearOfHire int); 
+--create table AttractionSchedule(ShiftID int primary key, 
+StaffID int, 
+AttractionID int, 
+Time_Start int, 
+Time_End int); 
+--create table AttractionStaff(StaffID int primary key, 
+FirstName varchar(40), 
+LastName varchar(40), 
+YearOfHire date); 
+select * from Visitor; 
+select * from Attraction; 
+select * from MaintenaceSchedule; select * from MainteanceStaff; select * from AttractionSchedule; select * from AttractionStaff; select * from ticketbooth; 
+ 
+  
+insert into Visitor values(1, 'Takshil', 'Chinnakonda' ,411030, 
+'TakshilChinnakonda6@gmail.com' , '6-Apr-2022'); 
+insert into Visitor values(2, 'Smit', 'Patel' ,411031, 'SmitPatel@gmail.com' 
+, '6-Apr-2022'); 
+insert into Visitor values(3, 'Muskaan' , 'Agrawal' ,411032, 'muskaan@gmail.com' , '7Apr-2022'); 
+insert into Visitor values(4, 'Mansoor', 'Shaikh' ,411033, 'chokslam@gmail.com' , '8Apr-2022'); 
+insert into Visitor values(5, 'Keshav', 'Mangal' ,411034, 'keshavm@gmail.com' , '10-Apr-
+2022'); 
+insert into Visitor values(6, 'Khushi', 'Luniya' ,411035, 'khush@gmail.com' , '11-Apr-
+2022'); 
+insert into Visitor values(7, 'Ms', 'Dhoni' ,411036, 'captaincool@gmail.com' , '6-Apr2022'); 
+insert into Visitor values(8, 'Omi', 'Mangal' ,411037, 'oopsomigel@gmail.com' , '13-Apr-
+2022'); 
+insert into Visitor values(9, 'Khagesh', 'Desai' ,411038, 'Khageshd@gmail.com' ,'14Apr-2022'); 
+insert into Visitor values(10, 'Sanat', 'Pareek' ,411039, 'ghanshyaam@gmail.com' , 
+'15-Apr-2022');  
+select * from Visitor; 
+ 
+insert into Attraction values(1000,200, 'Nitro', 'Rollercoaster'); 
+insert into Attraction values(1011,300, 'Scream machine', '180 degree swing'); insert into Attraction values(1012,100, 'Drop of death', 'A very scary lift'); insert into Attraction values(1014,100, 'Deep space', 'Space themed Rollercoaster'); insert into Attraction values(1016,200, 'Hill Manor', 'Haunted House'); 
+insert into Attraction values(1020,100, 'Robinhood', 'Water Rollercoaster'); 
+select * from Attraction; 
+
+insert into MaintenaceSchedule values(10,20,1000,8,9,'check for damages'); insert into MaintenaceSchedule values(12,30,1011,7,8, 'clean and check'); insert into MaintenaceSchedule values(14,40,1012,6,7, 'repair');
+insert into MaintenaceSchedule values(16,50,1014,7,8, 'inspect and clean'); insert into MaintenaceSchedule values(18,60,1016,8,9, 'fix lighting'); insert into MaintenaceSchedule values(20,70,1020,9,10, 'change water'); select * from MaintenaceSchedule;
+ 
+insert into MainteanceStaff values(20, 'Sanskruti', 'Patel',2008); insert into MainteanceStaff values(30, 'Yana', 'Bafna',2003); 
+insert into MainteanceStaff values(40, 'Neha', 'Bhalodiya',2009); insert into MainteanceStaff values(50, 'Shubham', 'Gandhi',2010); insert into MainteanceStaff values(60, 'Jash', 'Tandel',2003); insert into MainteanceStaff values(70, 'Sahil', 'Bhalodiya',2011); select * from MainteanceStaff; 
+ 
+insert into AttractionSchedule  values(1,201,1000,8,10); insert into AttractionSchedule values(2,202,1011,10,12); insert into AttractionSchedule values(3,203,1012,12,2); insert into AttractionSchedule values(4,204,1014,2,4); 
+insert into AttractionSchedule values(5,205,1016,4,6); 
+insert into AttractionSchedule values(6,206,1020,6,8); 
+insert into AttractionSchedule values(7,208,1000,8,10); 
+
+insert into AttractionStaff values(201,'Prachi','Rout','17-Oct-2003'); insert into AttractionStaff values(202,'Mansi','Shah','18-Oct-2003'); insert into AttractionStaff values(203,'Rashi','Wagh','19-Oct-2003'); insert into AttractionStaff values(204,'Raman','Mehta', '20-Oct-2003'); insert into AttractionStaff values(205,'Aryaman','Deshmukh','21-Oct-2003'); insert into AttractionStaff values(206,'Isha','Patil','22-Oct-2003'); 
+
+insert into ticketbooth values(464,'26-Aug-2022',3,3500); insert into ticketbooth values(465,'26-Aug-2022',6,6400); insert into ticketbooth values(466,'26-Aug-2022',4,4600); insert into ticketbooth values(467,'27-Aug-2022',3,3500); insert into ticketbooth values(468,'27-Aug-2022',8,8800); insert into ticketbooth values(469,'28-Aug-2022',5,5700);  
+QUERY 
+ select * from Visitor where Date_Last_Vistied='6-Apr-2022'; 
+SELECT COUNT(VisitorID) FROM Visitor SELECT AVG(Total)FROM ticketbooth 
+SELECT MAX(PRICE) FROM Attraction 
+SELECT MIN(PRICE) FROM Attraction 
+SELECT * from Visitor order by Zipcode asc; 
+SELECT Firstname from Visitor where Firstname like '_____';  
+SELECT Firstname from MainteanceStaff where YearOfHire>2008; 
+SELECT Firstname from Visitor inner join AttractionSchedule on VisitorID=ShiftID where 
+Time_Start>8; 
+SELECT name from Attraction where name like 'N____o'; 
+SELECT StaffID,FirstName from AttractionStaff where YearOfHire between '2003-10-17' and '2003-10-19'; 
+SELECT OrderID, Quantity,Total from ticketbooth where Total>3500; 
+Alter table Visitor add unique (Zipcode); 
+SELECT (Total * 0.1) as "service tax" from ticketbooth; 
+SELECT FirstName from AttractionStaff Inner join AttractionSchedule on 
+AttractionStaff.StaffID=AttractionSchedule.StaffID where Time_Start>4 and Time_End<12; 
+ 
+Visitor:
+
+Attraction:
+
+Attraction Staff:
+ 
+Maintenance Schedule:
+
+Maintenance Staff:
+
+Attraction Schedule:
+
+Ticket Booth:
+
+
+
+
+
+ 
+  
+   
+Query Questions: 
+Name the visitor who last visited on 6-Apr-2022 
+count visitorID of the visitor 
+Give the average of total from ticketbooth 
+give maximum price from attraction 
+give minimum price from attraction 
+Zipcode in ascending order from visitor table 
+list the Firstname who has 5 letters in the word 
+list the Firstname in mainteanacestaff who were hire>2008 
+display firstname of visitor who visited event after 8pm  
+list name from table attraction where name have 5 letters which starts from N and ends at O 
+list name and ID of staff who were hire between 2003-10-17 to 2003-10-19 
+list orderID, Quantity, total from table ticketbooth where total>3500 
+write a query to add zipcode to the table 
+how to display 10% service tax collected from ticket booth 
+display a query to print firstname and attractionstaff from the table using joints 
+QUERIES: 
+#1 
+select * from Visitor where Date_Last_Vistied='6-Apr-2022';
+ 
+  
+ 
+#2 
+SELECT COUNT(VisitorID) FROM Visitor; 
+
+ 
+ 
+#3 
+SELECT AVG(Total)FROM ticketbooth; 
+ 
+#4 
+SELECT MAX(PRICE) FROM Attraction;
+ 
+ 
+ 
+#5 
+SELECT MIN(PRICE) FROM Attraction; 
+ 
+ 
+#6 
+SELECT * from Visitor order by Zipcode asc; 
+
+ 
+ 
+#7 
+SELECT Firstname from Visitor where Firstname like '_____'; 
+ 
+ 
+#8  
+SELECT Firstname from MainteanceStaff where YearOfHire>2008; 
+
+ 
+#9 
+SELECT Firstname from Visitor inner join AttractionSchedule on VisitorID=ShiftID where 
+Time_Start>8; 
+ 
+#10 
+SELECT name from Attraction where name like 'N____o'; 
+ 
+ 
+#11 
+SELECT StaffID,FirstName from AttractionStaff where YearOfHire between '2003-10-17' and '2003-10-19'; 
+ 
+ 
+#12 
+SELECT OrderID, Quantity,Total from ticketbooth where Total>3500; 
+ 
+ 
+#13 
+Alter table Visitor add unique (Zipcode); 
+ 
+#14 
+SELECT (Total * 0.1) as "service tax" from ticketbooth;
+ 
+ 
+ 
+#15 
+SELECT FirstName from AttractionStaff Inner join AttractionSchedule on 
+AttractionStaff.StaffID=AttractionSchedule.StaffID where Time_Start>4 and Time_End<12;  this was my database management project write same for this
